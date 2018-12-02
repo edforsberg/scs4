@@ -1,0 +1,19 @@
+n = 5; 
+p = 0.6; 
+
+
+A = rand(n); 
+A = A < p; 
+for i = 1:n
+    A(i,i) = 0; 
+end 
+
+A = tril(A)+tril(A)'; 
+plot(graph(A));
+
+distArr = zeros(n,1); 
+for i = 1:n
+    icon = sum(A(i,:) == 1); 
+    distArr(icon) = distArr(icon) +1; 
+end 
+for 
