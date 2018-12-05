@@ -1,5 +1,6 @@
 clear all 
 
+
 A = csvread('smallWorldExample'); 
 
 n = size(A,1); 
@@ -13,18 +14,12 @@ end
 subplot(1,2,1)
 gplot(A, [xPos', yPos']);
 axis equal
-xlimits([0 r]);
-ylimits([0 r]);
+xlim([-r r]);
+ylim([-r r]);
 
-nrTriangles = trace(A^3)/6;
-nrTripplets = 0; 
-for i=1:size(A,1) 
-   ki = sum(A(i,:) == 1); 
-   nrTripplets = nrTripplets + ki*(ki-1);    
-end
-nrTripplets = nrTripplets/2; 
+clusterC = CalcClusterC(A);
 
-cClust = nrTriangles*3/nrTripplets; 
+disp(clusterC); 
 
-disp(cClust); 
+
  

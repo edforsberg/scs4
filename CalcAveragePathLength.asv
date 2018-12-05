@@ -1,0 +1,22 @@
+function [averagePathLength, diameter] = CalcAveragePathLength(A)
+
+n = size(A,1); 
+
+for i = 1:n
+    newConnections = A(i,:); 
+    newConnections(i) = 0; 
+    connections = 0; 
+    steps = 1; 
+    pathLengthI = 0; 
+    while (connections < n-1)
+       pathLengthI  = sum(newConnections)*steps; 
+       steps = steps+1; 
+       newConnections = A(find(newConnections),:); 
+       newConnections = sum(newConnections,1);
+       newConnections = (newConnections ~= 0); 
+       newConnections(i) = 0; 
+    end
+end
+diameter = 0; 
+end
+        

@@ -1,6 +1,6 @@
 clf
-n = 500; 
-p = 0.01;
+n = 10000; 
+p = 0.03;
 
 
 A = rand(n); 
@@ -19,8 +19,10 @@ for i = 1:n
     while (size(distArr,1) < icon)
         distArr = [distArr; 0]; 
     end
-    distArr(icon) = distArr(icon) +1; 
+    distArr(icon) = distArr(icon)+1; 
 end 
+
+minConnections = min(distArr); 
 
 predictionX = 0:size(distArr,1); 
 predictionY = TheoreticalPrediction(n,p,predictionX).*n; 
@@ -28,4 +30,4 @@ predictionY = TheoreticalPrediction(n,p,predictionX).*n;
 subplot(1,2,2)
 bar(distArr); 
 hold on 
-plot(predictionX, predictionY); 
+plot(predictionX, predictionY, 'linewidth', 2); 
