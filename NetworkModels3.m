@@ -38,16 +38,9 @@ for i = 1:nMax
     end
 end
 
-for i = 1:size(A,1)    
-    degreeVec(i) = sum(A(i,:) == 1);     
-end
 
-for i = m:max(degreeVec)
-   accDistVec(i) = sum((degreeVec >= i));  
-end
 
-accDistVec = accDistVec/(n0+nMax);
-
+accDistVec =  CalcDegreeDist(A); 
 predictionArray = PreferentialGrowthPrediction(m,gamma,m,numel(accDistVec));
 
 subplot(1,2,2); 
