@@ -1,14 +1,8 @@
-function [averagePathLength, diameter] = CalcAveragePathLength(A)
+clear all
 
-n = size(A,1); 
 
-for i = 1:n
-    node = A(i,:); 
-    connections = 0; 
-    steps = 1; 
-    pathLengthI = 0; 
-    while (connections < n-1)
-       newConnections = A(find(node),:); 
-       newConnections = sum(newConnections);
-       newConnections = 
-        
+A = csvread('smallWorldExample'); 
+A = [0 1 1 0;1 0 0 1;1 0 0 1;0 1 1 0]; 
+graph(A); 
+
+[averagePathLength, diameter] = CalcAveragePathLength(A)
