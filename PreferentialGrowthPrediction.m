@@ -1,8 +1,8 @@
-function predictionArray = PreferentialGrowthPrediction(m, gamma, maxConnections)
+function predictionArray = PreferentialGrowthPrediction(m, gamma,minConnections, maxConnections)
 
-predictionArray = zeros(maxConnections,1); 
-for i = 1:maxConnections
-   fi = 2*(m^2)*i^(-gamma+1); 
+predictionArray = zeros(maxConnections-minConnections,1); 
+for i = minConnections:maxConnections
+   fi = (m^2)*i^(-gamma+1); 
    predictionArray(i) = fi;    
 end
 

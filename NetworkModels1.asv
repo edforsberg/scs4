@@ -25,10 +25,10 @@ end
 
 minConnections = min(distArr); 
 
-predictionX = 0:size(distArr,1)+30; 
+predictionX = 0:size(distArr,1); 
 predictionY = TheoreticalPrediction(n,p,predictionX).*n; 
 
 subplot(1,2,2)
 bar(distArr); 
 hold on 
-plot(predictionX+1, predictionY, 'linewidth', 2); 
+plot(predictionX, predictionY, 'linewidth', 2); 

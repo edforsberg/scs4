@@ -2,7 +2,7 @@ clear all
 clf 
 
 n = 100;
-c = 2;
+c = 16;
 p = 0.05;
 
 r = 100;
@@ -40,9 +40,15 @@ end
 
 subplot(1,2,1)
 gplot(connectionMat1, [xPos', yPos']);
+title('n = 100, c = 16, p = 0');
+xlim([-r, r]); 
+ylim([-r, r]); 
 axis equal
 
 subplot(1,2,2)
 gplot(connectionMat2, [xPos', yPos']);
+title('n = 100, c = 16, p = 0.05'); 
+xlim([-r, r]);
+ylim([-r, r]);
 axis equal
 
